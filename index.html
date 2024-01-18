@@ -1,0 +1,82 @@
+<!-- Import Bootstrap CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<head>
+  <!-- Link to jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+  <!-- Link to Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- Link to your JavaScript files -->
+  <script src="script1.js"></script>
+  <script src="script2.js"></script></head>
+
+<!-- Create a container for the form -->
+<div class="container">
+  <!-- Create a form with three steps -->
+  <form>
+    <!-- Step 1: Select File -->
+    <div class="form-group">
+      <h3>Step 1: Select File</h3>
+      <label for="fileInput">Choose file</label>
+      <input type="file" class="form-control-file" id="fileInput">
+      <small class="form-text text-muted">Supported File Type(s): .CSV , .JSON</small>
+    </div>
+    <!-- Step 2: Specify Format -->
+    <div class="form-group">
+      <h3>Step 2: Specify Format</h3>
+      <label for="fileType">File Type:</label>
+      <select class="form-control" id="fileType">
+        <option>CSV</option>
+        <option>JSON</option>
+      </select>
+      <label for="encoding">Character Encoding:</label>
+      <select class="form-control" id="encoding">
+        <option>UTF-8</option>
+        <option>ISO-8859-1</option>
+        <option>Windows-1252</option>
+      </select>
+      <label for="delimiter">Delimiter:</label>
+      <select class="form-control" id="delimiter">
+        <option>Comma</option>
+        <option>Semicolon</option>
+        <option>Tab</option>
+      </select>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="hasHeader">
+        <label class="form-check-label" for="hasHeader">Has Header</label>
+      </div>
+    </div>
+    <!-- Step 3: Display Handling -->
+    <div class="form-group">
+      <h3>Step 3: Display Handling</h3>
+      <p>Select the fields to be displayed</p>
+      <div class="row">
+        <div class="col">
+          <label for="availableFields">Available Fields</label>
+          <select multiple class="form-control" id="availableFields">
+            <option>Product Id</option>
+            <option>Subcategory</option>
+            <option>Title</option>
+            <option>Price</option>
+            <option>Popularity</option>
+            <option>Description</option>
+            <option>Rating</option>
+            <option>Source</option>
+            <option>UTM Medium</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="displayedFields">Fields to be Displayed</label>
+          <select multiple class="form-control" id="displayedFields">
+            <option>Product Id</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Buttons for next and cancel -->
+    <button type="button" class="btn btn-primary">Next</button>
+    <button type="button" class="btn btn-secondary">Cancel</button>
+  </form>
+</div>
