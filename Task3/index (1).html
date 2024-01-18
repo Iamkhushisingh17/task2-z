@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Dashboard</title>
+    <style>
+        .login-container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>ZENTRADES</h1>
+    <form id="loginForm">
+        <br>
+        <input type="text" id="email" name="email" placeholder="Email Address"><br><br>
+
+        <br>
+        <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+
+        <input type='checkbox' id='rememberMe' name='rememberMe'>
+        <label for='rememberMe'>Remember me</label><br><br>
+
+        <button type='submit'>Sign In</button>
+    </form> 
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+
+    if (!/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@])[A-Za-z0-9@]{8,}$/.test(password)) {
+        alert('Password must contain at least one uppercase letter, one number, and can only have @ as special character.');
+        return false;
+    }
+
+    // You can add your own logic to handle the login request here
+    alert('Login successful!');
+});
+</script>
+
+</body>
+</html>

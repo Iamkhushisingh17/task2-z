@@ -1,0 +1,159 @@
+<!-- This is the dashboard.html file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        .dashboard-container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .metric {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .metric h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .metric p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+
+        .chart {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .chart h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .chart canvas {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Company Metrics</h1>
+    <div class="metrics">
+        <div class="metric">
+            <h3>$64,492</h3>
+            <p>Total Revenue</p>
+        </div>
+        <div class="metric">
+            <h3>$608</h3>
+            <p>Total Jobs Avg</p>
+        </div>
+        <div class="metric">
+            <h3>106</h3>
+            <p>Tickets Created</p>
+        </div>
+        <div class="metric">
+            <h3>66</h3>
+            <p>Tickets Scheduled</p>
+        </div>
+    </div>
+    <div class="charts">
+        <div class="chart">
+            <h3>Revenue By Job Location</h3>
+            <canvas id="locationChart"></canvas>
+        </div>
+        <div class="chart">
+            <h3>Revenue By Job Type</h3>
+            <canvas id="typeChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+// Data for the location chart
+var locationData = {
+    labels: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'],
+    datasets: [{
+        label: 'Revenue',
+        data: [12000, 9000, 8000, 7000, 6000],
+        backgroundColor: 'red',
+    }]
+};
+
+// Options for the location chart
+var locationOptions = {
+    scales: {
+        y: {
+            beginAtZero: true
+        }
+    }
+};
+
+// Create the location chart
+var locationChart = new Chart(
+    document.getElementById('locationChart'),
+    {
+        type: 'bar',
+        data: locationData,
+        options: locationOptions
+    }
+);
+
+// Data for the type chart
+var typeData = {
+    labels: ['Plumbing', 'Electrical', 'HVAC', 'Roofing', 'Painting'],
+    datasets: [{
+        label: 'Revenue',
+        data: [15000, 12000, 10000, 8000, 5000],
+        backgroundColor: 'red',
+    }]
+};
+
+// Options for the type chart
+var typeOptions = {
+    scales: {
+        y: {
+            beginAtZero: true
+        }
+    }
+};
+
+// Create the type chart
+var typeChart = new Chart(
+    document.getElementById('typeChart'),
+    {
+        type: 'bar',
+        data: typeData,
+        options: typeOptions
+    }
+);
+</script>
+
+</body>
+</html>
